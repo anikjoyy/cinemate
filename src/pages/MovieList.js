@@ -6,6 +6,10 @@ export const MovieList = ({ apiPath, title }) => {
   const { data: movies } = useFetch(apiPath);
   useTitle(title);
 
+  if (!movies) {
+    return <div>Loading...</div>; // Add a loading state while the data is being fetched
+  }
+
   return (
     <main>
       <section className='max-w-7xl mx-auto py-7'>
